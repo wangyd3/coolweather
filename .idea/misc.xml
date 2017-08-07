@@ -35,66 +35,42 @@
             <id />
           </State>
           <State>
-            <id>Android &gt; Lint &gt; Correctness</id>
+            <id>Android &gt; Lint &gt; Usability &gt; Typography</id>
           </State>
           <State>
-            <id>Android &gt; Lint &gt; Correctness &gt; Messages</id>
+            <id>Assignment issuesGroovy</id>
           </State>
           <State>
-            <id>Android &gt; Lint &gt; Performance</id>
+            <id>Assignment issuesJava</id>
           </State>
           <State>
-            <id>C/C++</id>
-          </State>
-          <State>
-            <id>Class structureJava</id>
-          </State>
-          <State>
-            <id>Data flow issuesGroovy</id>
-          </State>
-          <State>
-            <id>Declaration redundancyGroovy</id>
-          </State>
-          <State>
-            <id>Declaration redundancyJava</id>
-          </State>
-          <State>
-            <id>Error handlingGroovy</id>
-          </State>
-          <State>
-            <id>Error handlingJava</id>
-          </State>
-          <State>
-            <id>General</id>
+            <id>Control flow issuesJava</id>
           </State>
           <State>
             <id>Groovy</id>
           </State>
           <State>
-            <id>ImportsJava</id>
+            <id>Java</id>
           </State>
           <State>
-            <id>Java</id>
+            <id>Potentially confusing code constructsGroovy</id>
+          </State>
+          <State>
+            <id>Probable bugsGroovy</id>
           </State>
           <State>
             <id>Probable bugsJava</id>
           </State>
           <State>
-            <id>Properties Files</id>
+            <id>Threading issuesGroovy</id>
           </State>
           <State>
-            <id>RELAX NG</id>
-          </State>
-          <State>
-            <id>Unused codeC/C++</id>
-          </State>
-          <State>
-            <id>XML</id>
+            <id>Threading issuesJava</id>
           </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>UnusedParameters</id>
+            <id>XML</id>
           </State>
         </selected-state>
       </profile-state>
