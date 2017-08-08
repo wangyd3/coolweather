@@ -1,6 +1,7 @@
 package com.coolweather.android;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.coolweather.android.db.City;
 import com.coolweather.android.db.County;
 import com.coolweather.android.db.Province;
+import com.coolweather.android.util.DBG;
 import com.coolweather.android.util.HttpUtil;
 import com.coolweather.android.util.Utility;
 
@@ -34,6 +36,8 @@ import okhttp3.Response;
  */
 
 public class ChooseAreaFragment extends Fragment {
+
+    public static final String TAG = "ChooseAreaFragment";
 
     public static final int LEVEL_PROVINCE = 0;
     public static final int LEVEL_CITY = 1;
@@ -73,11 +77,20 @@ public class ChooseAreaFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (currentLevel == LEVEL_PROVINCE) {
+                    DBG.log(TAG, "LEVEL_PROVINCE");
                     selectedProvince = provinceList.get(i);
                     queryCitys();
                 } else if (currentLevel == LEVEL_CITY) {
+                    DBG.log(TAG, "LEVEL_CITY");
                     selectedCity = cityList.get(i);
                     queryCountys();
+                } else if (currentLevel == LEVEL_COUNTY) {
+                    DBG.log(TAG, "LEVEL_COUNTY");
+                    String weatherId = countyList.get(i).getWeatherId();
+                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                    intent.putExtra("weather_id", weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
@@ -198,7 +211,7 @@ public class ChooseAreaFragment extends Fragment {
                             }
                         }
                     });
-                    
+
                 }
 
 
