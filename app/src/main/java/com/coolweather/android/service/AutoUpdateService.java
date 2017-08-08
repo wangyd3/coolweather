@@ -80,22 +80,25 @@ public class AutoUpdateService extends Service {
     }
 
     private void updateBingPic() {
-        String requestBingPic = "http://guolin.tech/api.bing_pic";
+
+        String requestBingPic = "http://guolin.tech/api/bing_pic";
         HttpUtil.sendOKHttpRequest(requestBingPic, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-
+                DBG.log(TAG, "onFailure:", e);
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                String bingPic = response.body().string();
-                SharedPreferences.Editor editor = PreferenceManager
-                        .getDefaultSharedPreferences(AutoUpdateService.this).edit();
+                final String bingPic = response.body().string();
+                DBG.log(TAG, "bingPic_sever=" + bingPic);
+                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences
+                        (AutoUpdateService.this).edit();
                 editor.putString("bing_pic", bingPic);
                 editor.apply();
             }
         });
+
     }
 
 

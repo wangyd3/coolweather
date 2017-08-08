@@ -99,7 +99,7 @@ public class WeatherActivity extends AppCompatActivity {
         }
 
         String weatherString = prefs.getString("weather", null);
-        DBG.log(TAG, weatherString);
+
         final String weatherId;
         if (weatherString != null) {
             Weather weather = Utility.handleWeatherResponse(weatherString);
@@ -219,7 +219,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     private void loadBingPic() {
-        final String requestBingPic = "http://guolin.tech/api/bing_pic";
+        String requestBingPic = "http://guolin.tech/api/bing_pic";
         HttpUtil.sendOKHttpRequest(requestBingPic, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -229,7 +229,7 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String bingPic = response.body().string();
-                DBG.log(TAG, "requestBingPic=" + requestBingPic);
+                DBG.log(TAG, "bingPic_Data=" + bingPic);
                 SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences
                         (WeatherActivity.this).edit();
                 editor.putString("bing_pic", bingPic);
@@ -244,5 +244,11 @@ public class WeatherActivity extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
 }
